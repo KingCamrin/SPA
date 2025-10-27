@@ -1,0 +1,365 @@
+/* =================================================================
+   RESET AND BASE STYLES
+   ================================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* =================================================================
+   HEADER SECTION
+   ================================================================= */
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+}
+
+header h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+header p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+}
+
+/* =================================================================
+   SEARCH SECTION
+   ================================================================= */
+
+.search-section {
+    margin-bottom: 30px;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+}
+
+.search-input-container {
+    display: flex;
+    background: white;
+    border-radius: 50px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 500px;
+    transition: transform 0.2s ease;
+}
+
+.search-input-container:focus-within {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 25px rgba(0,0,0,0.15);
+}
+
+#search-input {
+    flex: 1;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    outline: none;
+    background: transparent;
+}
+
+#search-input::placeholder {
+    color: #999;
+}
+
+#search-btn {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+#search-btn:hover {
+    background: linear-gradient(45deg, #5a6fd8, #6a4190);
+    transform: translateX(-2px);
+}
+
+#search-btn:active {
+    transform: translateX(0);
+}
+
+/* =================================================================
+   LOADING INDICATOR
+   ================================================================= */
+
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: white;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto 20px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* =================================================================
+   RESULTS SECTION
+   ================================================================= */
+
+.results-section {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    animation: fadeInUp 0.5s ease;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.word-header {
+    border-bottom: 2px solid #f0f0f0;
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+#word-title {
+    font-size: 2.2rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.pronunciation {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+#phonetic-text {
+    font-size: 1.2rem;
+    color: #666;
+    font-style: italic;
+}
+
+.audio-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.audio-btn:hover {
+    background: #45a049;
+    transform: scale(1.05);
+}
+
+/* =================================================================
+   DEFINITIONS CONTAINER
+   ================================================================= */
+
+.definitions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.definition-group {
+    border-left: 4px solid #667eea;
+    padding-left: 20px;
+}
+
+.part-of-speech {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #667eea;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+}
+
+.definition-list {
+    list-style: none;
+}
+
+.definition-item {
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 3px solid #667eea;
+}
+
+.definition-text {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.example-text {
+    font-style: italic;
+    color: #666;
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    border-left: 3px solid #ddd;
+}
+
+.example-text::before {
+    content: "Example: ";
+    font-weight: 600;
+    color: #333;
+}
+
+/* =================================================================
+   ERROR SECTION
+   ================================================================= */
+
+.error-section {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    border-left: 5px solid #ff4757;
+    animation: fadeInUp 0.5s ease;
+}
+
+.error-message h3 {
+    color: #ff4757;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.error-message p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+/* =================================================================
+   FOOTER
+   ================================================================= */
+
+footer {
+    margin-top: auto;
+    text-align: center;
+    padding: 20px 0;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* =================================================================
+   UTILITY CLASSES
+   ================================================================= */
+
+.hidden {
+    display: none;
+}
+
+.fade-in {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* =================================================================
+   RESPONSIVE DESIGN
+   ================================================================= */
+
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    .search-input-container {
+        flex-direction: column;
+        border-radius: 15px;
+    }
+    
+    #search-input {
+        border-radius: 15px 15px 0 0;
+    }
+    
+    #search-btn {
+        border-radius: 0 0 15px 15px;
+    }
+    
+    .results-section {
+        padding: 20px;
+    }
+    
+    #word-title {
+        font-size: 1.8rem;
+    }
+    
+    .pronunciation {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.7rem;
+    }
+    
+    .results-section {
+        padding: 15px;
+    }
+    
+    .definition-group {
+        padding-left: 15px;
+    }
+}

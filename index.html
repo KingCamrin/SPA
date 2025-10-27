@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dictionary SPA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Dictionary Lookup</h1>
+            <p>Search for word definitions, pronunciations, and more</p>
+        </header>
+
+        <main>
+            <!-- Search Section -->
+            <section class="search-section">
+                <form id="search-form" class="search-form">
+                    <div class="search-input-container">
+                        <input 
+                            type="text" 
+                            id="search-input" 
+                            placeholder="Enter a word to search..." 
+                            required
+                            autocomplete="off"
+                        >
+                        <button type="submit" id="search-btn">
+                            <span>Search</span>
+                        </button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Loading Indicator -->
+            <div id="loading" class="loading hidden">
+                <div class="spinner"></div>
+                <p>Searching...</p>
+            </div>
+
+            <!-- Results Section -->
+            <section id="results-section" class="results-section hidden">
+                <div class="word-header">
+                    <h2 id="word-title"></h2>
+                    <div class="pronunciation">
+                        <span id="phonetic-text"></span>
+                        <button id="play-audio" class="audio-btn hidden">
+                            🔊 Play
+                        </button>
+                    </div>
+                </div>
+
+                <div id="definitions-container" class="definitions-container">
+                    <!-- Definitions will be populated here -->
+                </div>
+            </section>
+
+            <!-- Error Section -->
+            <section id="error-section" class="error-section hidden">
+                <div class="error-message">
+                    <h3>Word not found</h3>
+                    <p id="error-text">Please try searching for a different word.</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Powered by Free Dictionary API</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
+
